@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Task2 extends JFrame {
     private JPanel frame;
@@ -45,11 +46,13 @@ public class Task2 extends JFrame {
                 }
 
                 else if (sortingMetod.getSelectedItem() == "od největšího po nejmenší") {
-                    Arrays.sort(numbers);
-
-                    for (int i = numbers.length; i > 0; i--) {
-
+                    for (int i = 0; i < numbers.length / 2; i++) {
+                        int temp = numbers[i];
+                        numbers[i] = numbers[numbers.length-1 - i];
+                        numbers[numbers.length-1 - i] = temp;
                     }
+
+                    sortedLabel.setText(Arrays.toString(numbers));
                 }
 
                 else if (sortingMetod.getSelectedItem() == "od nejmenšího po největší") {
